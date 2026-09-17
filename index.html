@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real-time weather information app">
+    <title>Weatherly | Weather App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">☁️</div>
+                <div>
+                    <h1>Weatherly</h1>
+                    <span>Live Weather</span>
+                </div>
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                Live Data
+            </div>
+        </header>
+
+
+        <!-- Main -->
+        <main>
+
+            <!-- Search -->
+            <section class="search-section">
+                <h2>What's the weather like?</h2>
+                <p>Search for a city to get real-time weather information.</p>
+
+                <form id="searchForm" class="search-box">
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="text"
+                        id="cityInput"
+                        placeholder="Enter city name..."
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit" id="searchBtn">
+                        Search
+                    </button>
+                </form>
+
+                <p id="errorMessage" class="error-message"></p>
+            </section>
+
+
+            <!-- Loading -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Getting weather data...</p>
+            </div>
+
+
+            <!-- Weather Card -->
+            <section id="weatherContent" class="weather-content hidden">
+
+                <div class="weather-main-card">
+
+                    <div class="location-info">
+                        <div>
+                            <span class="small-label">CURRENT WEATHER</span>
+
+                            <h2 id="cityName">Islamabad</h2>
+
+                            <p id="countryName">Pakistan</p>
+                        </div>
+
+                        <div class="weather-icon" id="weatherIcon">
+                            ☀️
+                        </div>
+                    </div>
+
+
+                    <div class="temperature-area">
+                        <div class="temperature">
+                            <span id="temperature">--</span>
+                            <sup>°C</sup>
+                        </div>
+
+                        <div>
+                            <h3 id="weatherCondition">Clear Sky</h3>
+                            <p id="weatherDate">Today</p>
+                        </div>
+                    </div>
+
+
+                    <div class="weather-details">
+
+                        <div class="detail-card">
+                            <div class="detail-icon">💧</div>
+                            <div>
+                                <span>Humidity</span>
+                                <strong id="humidity">--%</strong>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">💨</div>
+                            <div>
+                                <span>Wind Speed</span>
+                                <strong id="windSpeed">-- km/h</strong>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">🌡️</div>
+                            <div>
+                                <span>Feels Like</span>
+                                <strong id="feelsLike">--°C</strong>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-icon">☁️</div>
+                            <div>
+                                <span>Cloud Cover</span>
+                                <strong id="cloudCover">--%</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Sunrise / Sunset -->
+                <div class="sun-card">
+
+                    <div class="sun-item">
+                        <div class="sun-icon">🌅</div>
+                        <div>
+                            <span>Sunrise</span>
+                            <strong id="sunrise">--:--</strong>
+                        </div>
+                    </div>
+
+                    <div class="sun-divider"></div>
+
+                    <div class="sun-item">
+                        <div class="sun-icon">🌇</div>
+                        <div>
+                            <span>Sunset</span>
+                            <strong id="sunset">--:--</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Initial State -->
+            <section id="welcome" class="welcome">
+
+                <div class="welcome-icon">🌤️</div>
+
+                <h2>Check the Weather</h2>
+
+                <p>
+                    Enter a city above to see its current weather conditions,
+                    temperature, humidity and more.
+                </p>
+
+                <div class="popular-cities">
+                    <button class="city-btn" data-city="Islamabad">Islamabad</button>
+                    <button class="city-btn" data-city="Lahore">Lahore</button>
+                    <button class="city-btn" data-city="Karachi">Karachi</button>
+                    <button class="city-btn" data-city="New York">New York</button>
+                    <button class="city-btn" data-city="London">London</button>
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+            <p>Built with HTML, CSS & JavaScript</p>
+            <span>Weather data powered by Open-Meteo</span>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
